@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <link href="static/styles.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Urban Monster</title>
+</head>
+
+<body>
+    <nav>
+        <div class="navbar">
+            <div class="logo">
+                <a href="/"> Urban Monster </a>
+            </div>
+            <div>
+                <ul>
+                    <li>
+                        <a href="index.html">HOME</a>
+                    </li>
+                    <li>
+                        <a href="products.html">PRODUCTS</a>
+                    </li>
+                    <li>
+                        <a href="orders.html">ORDERS</a>
+                    </li>
+                    <li>
+                        <a href="login-register.html">LOGIN/REGISTER</a>
+                    </li>
+                    <li>
+                        <a href="about.html">ABOUT</a>
+                    </li>
+                    <li>
+                        <header>
+                            <div class="iconCart">
+                                <img src="static/images/cart-icon.png" alt="cart">
+                                <div class="totalQuantity">0</div>
+                            </div>
+                        </header>
+
+
+                        <div class="cart">
+                            <h2>
+                                CART
+                            </h2>
+
+                            <div class="listCart">
+                            </div>
+
+                            <div class="buttons">
+                                <div class="close">
+                                    CLOSE
+                                </div>
+                                <div class="checkout">
+                                    <a href="checkout.html">CHECKOUT</a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="banner" id="product-page-banner">
+        <div class="banner-gradient" id="product-gradient-banner">
+            <div class="banner-content" id="product-banner-content">
+                <h1>Our Products</h1>
+                <h2>Home &nbsp<span>></span>&nbsp Products</h2>
+            </div>
+        </div>
+    </div>
+
+    <div id="page-content">
+        <div class="product-type-list">
+            <button class="product-type-btn">All Products</button>
+            <button class="product-type-btn">Shirts</button>
+            <button class="product-type-btn">Trousers</button>
+            <button class="product-type-btn">Shoes</button>
+        </div>
+
+        <div id="product-content">
+        </div>
+
+        <div class="button-paginator">
+            <button id="first-page-btn">
+                <span>First</span>
+            </button>
+            <button id="prev-page-btn">
+                <span>Previous</span>
+            </button>
+            <button style="background-color: #cdac48;">
+                <span id="page-number" style="color: white">1</span>
+            </button>
+            <button id="next-page-btn">
+                <span>Next</span>
+            </button>
+            <button id="last-page-btn">
+                <span>Last</span>
+            </button>
+        </div>
+    </div>
+</body>
+<script type="module" src="static/cartHandler.js"></script>
+<script src="static/allProductsHandler.js"></script>
+<script src="static/displayProductHandler.js"></script>
+<script>getAllProducts();</script>
+
+</html>
