@@ -45,12 +45,18 @@ public class CheckoutService {
         List<CartDTO> productsInCart = cartService.getProductsInCart(user);
 
         //Calculate the total cart amount
-        Double totalOrderAmount = cartService.calculateTotalCartValue(productsInCart) + 0D;
-
-        Checkout checkout = new Checkout();
+        Double subTotal = cartService.calculateCartSubTotal(productsInCart) + 0D;
+        Double tax = 0.18 * subTotal;
+        Double shippingFee = 40D;
+        Double totalAmount = subTotal + tax + shippingFee;
         Amount amount = new Amount();
-        amount.setCurrency(checkout.getCURRENCY());
-        amount.setTotal(String.format("%.2f", totalOrderAmount));
+        amount.setCurrency(CheckoutConstants.CURRENCY);
+        amount.setTotal(String.format("%.2f", totalAmount));
+        Details details = new Details();
+        details.setShipping(shippingFee.toString());
+        details.setTax(tax.toString());
+        details.setSubtotal(subTotal.toString());
+        amount.setDetails(details);
 
         ItemList itemList = new ItemList();
         List<Item> items = new ArrayList<>();
@@ -61,7 +67,7 @@ public class CheckoutService {
         itemList.setItems(items);
 
         Transaction transaction = new Transaction();
-        transaction.setDescription(checkout.getDESCRIPTION());
+        transaction.setDescription(CheckoutConstants.DESCRIPTION);
         transaction.setAmount(amount);
         transaction.setItemList(itemList);
         List<Transaction> transactions = new ArrayList<>();
@@ -71,13 +77,13 @@ public class CheckoutService {
         payer.setPaymentMethod("PayPal");
 
         Payment payment = new Payment();
-        payment.setIntent(checkout.getINTENT());
+        payment.setIntent(CheckoutConstants.INTENT);
         payment.setPayer(payer);
         payment.setTransactions(transactions);
 
         RedirectUrls redirectUrls = new RedirectUrls();
-        redirectUrls.setCancelUrl(checkout.getCANCEL_URL());
-        redirectUrls.setReturnUrl(checkout.getSUCCESS_URL());
+        redirectUrls.setCancelUrl(CheckoutConstants.CANCEL_URL);
+        redirectUrls.setReturnUrl(CheckoutConstants.SUCCESS_URL);
         payment.setRedirectUrls(redirectUrls);
 
         return payment.create(apiContext);

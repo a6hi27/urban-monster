@@ -426,7 +426,7 @@ nav {
 }
 
 #product-page-banner {
-    background-image: url('images/bg-3.png');
+    background-image: url('../images/bg-3.png');
 }
 
 #product-gradient-banner {
@@ -760,7 +760,7 @@ a {
     text-decoration: none;
 }
 
-.container {
+.container--login {
     width: 1200px;
     margin: auto;
     max-width: 90%;

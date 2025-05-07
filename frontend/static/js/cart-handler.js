@@ -5,7 +5,8 @@ function checkCart() {
     if (cookieValue) {
         let storedCart = JSON.parse(cookieValue.split('=')[1]);
         listCart = new Map(storedCart);
-        console.log(listCart.get(1));
+        if (Object.keys(listCart).length === 0)
+            return false;
         return true;
     }
     return false;
@@ -25,13 +26,11 @@ function fetchCart() {
             let productsInCart = JSON.parse(xhr.response);
             productsInCart.forEach(cartDTO => {
                 listCart.set(cartDTO.product.productId, cartDTO);
-                console.log(cartDTO.product.productId + "This is listCart")
+                // console.log(cartDTO.product.productId + "This is listCart")
             });
-            document.cookie = "listCart=" + JSON.stringify(Array.from(listCart)) + "; expires=Thu, 31 Dec 2025 23:59:59 UTC; path=/;";
-
+            document.cookie = "listCart=" + JSON.stringify(Array.from(listCart)) + "; path=/;";
             addCartToHTML();
-
-            console.log('Cart fetched successfully!', productsInCart);
+            // console.log('Cart fetched successfully!', productsInCart);
         } else {
             alert("Cart failed!");
             console.error('Cart failed:', xhr.status, xhr.statusText);
@@ -72,7 +71,7 @@ function addCart(productId, quantity) {
                 //I just increased the quantity
                 listCart.productId.quantity++;
             }
-            document.cookie = "listCart=" + JSON.stringify(Array.from(listCart)) + "; expires=Thu, 31 Dec 2025 23:59:59 UTC; path=/;";
+            document.cookie = "listCart=" + JSON.stringify(Array.from(listCart)) + ";path=/;";
 
             addCartToHTML();
         } else {
@@ -139,7 +138,7 @@ function changeQuantity(productId, type) {
             product.quantity = product.quantity + 1;
             break;
         case '-':
-            if (product.quantity <= 0) {
+            if (product.quantity - 1 <= 0) {
                 listCart.delete(productId);
             } else {
                 product.quantity = product.quantity - 1;
@@ -150,7 +149,7 @@ function changeQuantity(productId, type) {
             break;
     }
     // save new data in cookie
-    document.cookie = "listCart=" + JSON.stringify(Array.from(listCart)) + "; expires=Thu, 31 Dec 2025 23:59:59 UTC; path=/;";
+    document.cookie = "listCart=" + JSON.stringify(Array.from(listCart)) + ";path=/;";
     // reload html view cart
     addCartToHTML();
 }
@@ -162,7 +161,7 @@ let listCart = new Map();
 
 document.addEventListener("DOMContentLoaded", () => {
     let valCheckCart = checkCart();
-    console.log(checkCart());
+    // console.log(checkCart());
     if (!valCheckCart) {
         fetchCart();
     } else {

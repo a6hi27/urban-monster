@@ -1,5 +1,6 @@
 package com.sareepuram.ecommerce.order;
 
+import com.paypal.api.payments.Payment;
 import com.sareepuram.ecommerce.address.Address;
 import com.sareepuram.ecommerce.cart.Cart;
 import com.sareepuram.ecommerce.cart.CartRepository;
@@ -12,9 +13,8 @@ import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Collections;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
+import java.util.stream.Collectors;
 
 @Service
 public class OrderService {
@@ -35,8 +35,18 @@ public class OrderService {
         return orders.orElse(Collections.emptyList());
     }
 
+    public Order getOrderByOrderId(Integer orderId) {
+        Optional<Order> order = orderRepository.findById(orderId);
+        return order.orElse(null);
+    }
+
     @Transactional
-    public Order addOrder(User user, String paymentId, Address shippingAddress) {
+    public Order addOrder(User user, Payment response, Address shippingAddress) {
+        String paymentId = response.getId();
+        String totalAmount = response.getTransactions().get(0).getAmount().getTotal();
+        String subTotal = response.getTransactions().get(0).getAmount().getDetails().getSubtotal();
+        String tax = response.getTransactions().get(0).getAmount().getDetails().getTax();
+        String shippingFee = response.getTransactions().get(0).getAmount().getDetails().getShipping();
         List<Cart> cartsInOrder = cartRepository.findAllByUser_UserId(user.getUserId());
         List<Item> itemsInOrder = cartsInOrder.stream().map(cart -> {
             Product product = cart.getProduct();
@@ -45,12 +55,27 @@ public class OrderService {
             product.setAvailableQuantity(availableQuantity - orderedQuantity);
             productRepository.save(product);
             return new Item(cart.getProduct(), cart.getQuantity());
-        }).toList();
-        Order order = new Order(user, itemsInOrder, paymentId, shippingAddress);
+        }).collect(Collectors.toCollection(ArrayList::new));
+        Order order = new Order(user, itemsInOrder, paymentId, shippingAddress, totalAmount, subTotal, tax, shippingFee);
         order = orderRepository.save(order);
 
         //Clear the user's cart after placing the order
         cartService.deleteAllFromCart(user);
         return order;
+    }
+
+    public Order addOrder(User user, String orderCreationStatus, String orderCreationStatusDetails) {
+        Order failedOrder = new Order(user, orderCreationStatus, orderCreationStatusDetails);
+        failedOrder = orderRepository.save(failedOrder);
+        return failedOrder;
+    }
+
+    public Optional<String> getOrderCreationStatus(Integer orderId) {
+        Optional<String> orderCreationStatus = orderRepository.findOrderCreationStatusByOrderId(orderId);
+        return orderCreationStatus;
+    }
+
+    public Order updateOrder(Order order) {
+        return orderRepository.save(order);
     }
 }

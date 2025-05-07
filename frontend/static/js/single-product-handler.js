@@ -1,4 +1,4 @@
-import { addCart } from './cartHandler.js';
+import { addCart } from './cart-handler.js';
 
 let addToCartBtn = document.getElementById("add-to-cart-btn");
 let plusBtn = document.getElementById("plus-btn");

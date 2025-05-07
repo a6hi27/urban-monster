@@ -1,94 +1,98 @@
 <!DOCTYPE html>
 
 <html lang="en" dir="ltr">
+
 <head>
     <meta charset="UTF-8">
     <title>Urban Monster</title>
-    <link rel="stylesheet" href="style.css">
     <!-- Fontawesome CDN Link -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <link rel="stylesheet" href="static/styles.css">
-    <link rel="stylesheet" href="static/login-register.css">
-    <script src="requests/login-register.js"></script>
+    <link rel="stylesheet" href="static/css/styles.css">
+    <link rel="stylesheet" href="static/css/login-register.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
+
 <body>
-<div class="container">
-    <input type="checkbox" id="flip">
-    <div class="cover">
-        <div class="front">
-            <img src="/files/Images/ComFi%20Images/login%20page/sofa_front.jpg" alt="sofa_front">
-            <div class="text">
-                <span class="text-1">Every new sofa is a <br> new adventure</span>>
+    <div class="container--login">
+        <input type="checkbox" id="flip">
+        <div class="cover">
+            <div class="front">
+                <!-- <img src="/files/Images/ComFi%20Images/login%20page/sofa_front.jpg" alt="sofa_front"> -->
+                <div class="text">
+                    <span class="text-1">Rule the <br> urban jungle</span>>
+                </div>
+            </div>
+            <div class="back">
+                <!-- <img class="backImg" src="/files/Images/ComFi%20Images/login%20page/sofa_backend.jpg" alt="sofa_back"> -->
+                <div class="text">
+                    <span class="text-1">The Concrete jungle <br> demands a new kind of predator</span>
+                    <span class="text-2">Let's get started!</span>
+                </div>
             </div>
         </div>
-        <div class="back">
-            <img class="backImg" src="/files/Images/ComFi%20Images/login%20page/sofa_backend.jpg" alt="sofa_back">
-            <div class="text">
-                <span class="text-1">Complete miles of journey <br> with one step</span>
-                <span class="text-2">Let's get started</span>
+        <div class="forms">
+            <div class="form-content">
+                <div class="login-form">
+                    <div class="title">Login</div>
+                    <form onsubmit="getLoginData()">
+                        <div class="input-boxes">
+                            <div class="input-box">
+                                <i class="fas fa-envelope"></i>
+                                <label for="login-email">
+                                    <input id="login-email" type="email" placeholder="Enter your email" required>
+                                </label>
+                            </div>
+                            <div class="input-box">
+                                <i class="fas fa-lock"></i>
+                                <label for="login-password">
+                                    <input id="login-password" type="password" placeholder="Enter your password"
+                                        required>
+                                </label>
+                            </div>
+                            <div class="text"><a href="#">Forgot password?</a></div>
+                            <div class="button input-box">
+                                <input type="submit" value="Submit">
+                            </div>
+                            <div class="text sign-up-text">Don't have an account? <label for="flip">Sigup now</label>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="signup-form">
+                    <div class="title">Signup</div>
+                    <form onsubmit="">
+                        <div class="input-boxes">
+                            <div class="input-box">
+                                <i class="fas fa-user"></i>
+                                <label for="register-name">
+                                    <input id="register-name" type="text" placeholder="Enter your name" required>
+                                </label>
+                            </div>
+                            <div class="input-box">
+                                <i class="fas fa-envelope"></i>
+                                <label for="register-email">
+                                    <input id="register-email" type="email" placeholder="Enter your email" required>
+                                </label>
+                            </div>
+                            <div class="input-box">
+                                <i class="fas fa-lock"></i>
+                                <label for="register-password">
+                                    <input id="register-password" type="password" placeholder="Enter your password"
+                                        required>
+                                </label>
+                            </div>
+                            <div class="button input-box">
+                                <input type="submit" value="Submit">
+                            </div>
+                            <div class="text sign-up-text">Already have an account? <label for="flip">Login now</label>
+                            </div>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
-    <div class="forms">
-        <div class="form-content">
-            <div class="login-form">
-                <div class="title">Login</div>
-                <form onsubmit="getLoginData()">
-                    <div class="input-boxes">
-                        <div class="input-box">
-                            <i class="fas fa-envelope"></i>
-                            <label for="login-email">
-                                <input id="login-email" type="email" placeholder="Enter your email" required>
-                            </label>
-                        </div>
-                        <div class="input-box">
-                            <i class="fas fa-lock"></i>
-                            <label for="login-password">
-                                <input id="login-password" type="password" placeholder="Enter your password" required>
-                            </label>
-                        </div>
-                        <div class="text"><a href="#">Forgot password?</a></div>
-                        <div class="button input-box">
-                            <input type="submit" value="Submit">
-                        </div>
-                        <div class="text sign-up-text">Don't have an account? <label for="flip">Sigup now</label></div>
-                    </div>
-                </form>
-            </div>
-            <div class="signup-form">
-                <div class="title">Signup</div>
-                <form action="#">
-                    <div class="input-boxes">
-                        <div class="input-box">
-                            <i class="fas fa-user"></i>
-                            <label for="register-name">
-                                <input id="register-name" type="text" placeholder="Enter your name" required>
-                            </label>
-                        </div>
-                        <div class="input-box">
-                            <i class="fas fa-envelope"></i>
-                            <label for="register-email">
-                                <input id="register-email" type="text" placeholder="Enter your email" required>
-                            </label>
-                        </div>
-                        <div class="input-box">
-                            <i class="fas fa-lock"></i>
-                            <label for="register-password">
-                                <input id="register-password" type="password" placeholder="Enter your password"
-                                       required>
-                            </label>
-                        </div>
-                        <div class="button input-box">
-                            <input type="submit" value="Submit">
-                        </div>
-                        <div class="text sign-up-text">Already have an account? <label for="flip">Login now</label>
-                        </div>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-</div>
+    <script src="static/js/login-register.js"></script>
 </body>
+
 </html>

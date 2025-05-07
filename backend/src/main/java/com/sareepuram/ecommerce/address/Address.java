@@ -20,7 +20,8 @@ public class Address implements Serializable {
     private String zipCode;
     private String countryCode;
 
-    public Address(String addressLine1, String addressLine2, String city, String countryCode, String state, String zipCode) {
+    public Address(String addressLine1, String addressLine2, String city, String countryCode, String state,
+                   String zipCode) {
         this.addressLine1 = addressLine1;
         this.addressLine2 = addressLine2;
         this.city = city;
@@ -31,6 +32,6 @@ public class Address implements Serializable {
 
     @Override
     public String toString() {
-        return addressLine1 + ",\n" + addressLine2 + ",\n" + city + " - " + zipCode + "\n" + state;
+        return addressLine1 + ",\n" + addressLine2 + ",\n" + city + " - " + zipCode + "\n" + state + ",\n" + countryCode;
     }
 }

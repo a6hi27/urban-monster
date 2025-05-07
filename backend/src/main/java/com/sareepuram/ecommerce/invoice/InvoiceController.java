@@ -30,19 +30,5 @@ public class InvoiceController {
     public String generateAndSaveInvoice(@RequestParam("paymentId") String paymentId,
                                          @RequestParam("orderId") String orderId, HttpSession httpSession) throws PayPalRESTException, DocumentException, IOException, MessagingException {
 
-        //Get details required for generating invoice pdf
-        Payment payment = invoiceService.getPaymentDetails(paymentId);
-        User user = userService.getCurrentUser(httpSession);
-        String invoiceNumber = "URB-MON-" + user.getUserId() + "-" + orderId;
-
-        // Generate the PDF byte array
-        byte[] pdfBytes = invoiceService.generateInvoice(payment);
-
-        // Save the pdf in filesystem
-        String pdfPath = invoiceService.saveInvoice(invoiceNumber, pdfBytes);
-
-         //Send email to customer
-        invoiceService.emailInvoice(invoiceNumber, pdfPath);
-        return pdfFilePath;
-    }
+      return "dummy";    }
 }

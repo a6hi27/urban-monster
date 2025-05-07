@@ -23,10 +23,12 @@ public class Cart implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int cartId;
+
     @ManyToOne
     @JsonBackReference(value = "cart_user")
     @JoinColumn(name = "user_id")
     private User user;
+
     @ManyToOne
     @JsonBackReference(value = "cart_product")
     @JoinColumn(name = "product_id")

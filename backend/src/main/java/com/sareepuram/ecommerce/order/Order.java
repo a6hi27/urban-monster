@@ -1,6 +1,7 @@
 package com.sareepuram.ecommerce.order;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.sareepuram.ecommerce.address.Address;
 import com.sareepuram.ecommerce.item.Item;
 import com.sareepuram.ecommerce.user.User;
@@ -28,6 +29,7 @@ public class Order implements Serializable {
     @ManyToOne
     @JoinColumn(name = "user_id")
     @JsonBackReference(value = "order_user")
+    @JsonIgnoreProperties({"orders"})
     private User user;
 
     @OneToOne(cascade = CascadeType.ALL)
@@ -38,10 +40,29 @@ public class Order implements Serializable {
     @JoinColumn(name = "order_id")
     private List<Item> items = new ArrayList<>();
 
-    public Order(User user, List<Item> items, String paypalPaymentId, Address shippingAddress) {
+    private String orderCreationStatus;
+    private String invoiceURL;
+    private String orderCreationStatusDetails;
+    private String totalAmount;
+    private String subTotal;
+    private String tax;
+    private String shippingFee;
+
+    public Order(User user, String orderCreationStatus, String orderCreationStatusDetails) {
+        this.user = user;
+        this.orderCreationStatus = orderCreationStatus;
+        this.orderCreationStatusDetails = orderCreationStatusDetails;
+    }
+
+    public Order(User user, List<Item> items, String paypalPaymentId, Address shippingAddress, String totalAmount,
+                 String subTotal, String tax, String shippingFee) {
         this.user = user;
         this.items = items;
         this.paypalPaymentId = paypalPaymentId;
         this.shippingAddress = shippingAddress;
+        this.totalAmount = totalAmount;
+        this.subTotal = subTotal;
+        this.tax = tax;
+        this.shippingFee = shippingFee;
     }
 }

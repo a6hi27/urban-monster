@@ -72,7 +72,7 @@ public class CartService {
         return deletedRows > 0;
     }
 
-    public Long calculateTotalCartValue(List<CartDTO> productsInCart) {
+    public Long calculateCartSubTotal(List<CartDTO> productsInCart) {
         long cartTotal = 0L;
         for (CartDTO productInCart : productsInCart)
             cartTotal += productInCart.getProduct().getPrice() * productInCart.getQuantity();

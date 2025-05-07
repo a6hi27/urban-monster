@@ -6,7 +6,7 @@ let storedCart = JSON.parse(cookieValue.split('=')[1]);
 let checkoutBtn = document.querySelector(".checkout-btn");
 listCart = new Map(storedCart);
 
-document.addEventListener("click", () => {
+checkoutBtn.addEventListener("click", () => {
     initiateCheckout();
 })
 

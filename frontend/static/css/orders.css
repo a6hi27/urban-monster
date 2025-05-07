@@ -122,6 +122,11 @@
     height: .875rem
 }
 
+.container {
+    width: 80%;
+    margin: 2% 2% 0% 2%;
+}
+
 @media (max-width: 575.98px) {
     .steps-header {
         display: none

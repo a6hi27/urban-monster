@@ -1,0 +1,276 @@
+<head>
+    <link href="/static/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="/static/css/icons.min.css" rel="stylesheet" type="text/css">
+    <link href="/static/css/app.min.css" rel="stylesheet" type="text/css">
+    <link href="/static/js/layout.js" rel="stylesheet" type="text/css">
+</head>
+
+<div class="main-content">
+    <div class="page-content">
+        <div class="container-fluid">
+            <!-- start page title -->
+            <div class="row">
+                <div class="col-12">
+                    <div class="page-title-box d-sm-flex align-items-center justify-content-between">
+                        <h4 class="mb-sm-0">Order Details</h4>
+
+                        <div class="page-title-right">
+                            <ol class="breadcrumb m-0">
+                                <li class="breadcrumb-item"><a href="javascript: void(0);">Ecommerce</a></li>
+                                <li class="breadcrumb-item active">Order Details</li>
+                            </ol>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <!-- end page title -->
+
+            <div class="row">
+                <div class="col-xl-9">
+                    <div class="card" id="order-details-card">
+                    </div>
+                    <!--end card-->
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="d-sm-flex align-items-center">
+                                <h5 class="card-title flex-grow-1 mb-0">Order Status</h5>
+                                <div class="flex-shrink-0 mt-2 mt-sm-0">
+                                    <a href="javascript:void(0);" class="btn btn-soft-info btn-sm mt-2 mt-sm-0"><i
+                                            class="ri-map-pin-line align-middle me-1"></i> Change Address</a>
+                                    <a href="javascript:void(0);" class="btn btn-soft-danger btn-sm mt-2 mt-sm-0"><i
+                                            class="mdi mdi-archive-remove-outline align-middle me-1"></i> Cancel
+                                        Order</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-body" id="order-status-card-body">
+                            <div class="profile-timeline">
+                                <div class="accordion accordion-flush" id="accordionFlushExample">
+                                    <div class="accordion-item border-0">
+                                        <div class="accordion-header" id="headingOne">
+                                            <a class="accordion-button p-2 shadow-none" data-bs-toggle="collapse"
+                                                href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                                <div class="d-flex align-items-center">
+                                                    <div class="flex-shrink-0 avatar-xs">
+                                                        <div class="avatar-title bg-success rounded-circle">
+                                                            <i class="ri-shopping-bag-line"></i>
+                                                        </div>
+                                                    </div>
+                                                    <div class="flex-grow-1 ms-3">
+                                                        <h6 class="fs-14 mb-0">Order Placed - <span
+                                                                class="fw-normal">Wed, 15 Dec 2021</span></h6>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                        <div id="collapseOne" class="accordion-collapse collapse show"
+                                            aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                                            <div class="accordion-body ms-2 ps-5 pt-0">
+                                                <h6 class="mb-1">An order has been placed.</h6>
+                                                <p class="text-muted">Wed, 15 Dec 2021 - 05:34PM</p>
+
+                                                <h6 class="mb-1">Seller has processed your order.</h6>
+                                                <p class="text-muted mb-0">Thu, 16 Dec 2021 - 5:48AM</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="accordion-item border-0">
+                                        <div class="accordion-header" id="headingTwo">
+                                            <a class="accordion-button p-2 shadow-none" data-bs-toggle="collapse"
+                                                href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                                <div class="d-flex align-items-center">
+                                                    <div class="flex-shrink-0 avatar-xs">
+                                                        <div class="avatar-title bg-success rounded-circle">
+                                                            <i class="mdi mdi-gift-outline"></i>
+                                                        </div>
+                                                    </div>
+                                                    <div class="flex-grow-1 ms-3">
+                                                        <h6 class="fs-14 mb-1">Packed - <span class="fw-normal">Thu, 16
+                                                                Dec 2021</span></h6>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                        <div id="collapseTwo" class="accordion-collapse collapse show"
+                                            aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                                            <div class="accordion-body ms-2 ps-5 pt-0">
+                                                <h6 class="mb-1">Your Item has been picked up by courier partner</h6>
+                                                <p class="text-muted mb-0">Fri, 17 Dec 2021 - 9:45AM</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="accordion-item border-0">
+                                        <div class="accordion-header" id="headingThree">
+                                            <a class="accordion-button p-2 shadow-none" data-bs-toggle="collapse"
+                                                href="#collapseThree" aria-expanded="false"
+                                                aria-controls="collapseThree">
+                                                <div class="d-flex align-items-center">
+                                                    <div class="flex-shrink-0 avatar-xs">
+                                                        <div class="avatar-title bg-success rounded-circle">
+                                                            <i class="ri-truck-line"></i>
+                                                        </div>
+                                                    </div>
+                                                    <div class="flex-grow-1 ms-3">
+                                                        <h6 class="fs-14 mb-1">Shipping - <span class="fw-normal">Thu,
+                                                                16 Dec 2021</span></h6>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                        <div id="collapseThree" class="accordion-collapse collapse show"
+                                            aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                                            <div class="accordion-body ms-2 ps-5 pt-0">
+                                                <h6 class="fs-14">RQK Logistics - MFDS1400457854</h6>
+                                                <h6 class="mb-1">Your item has been shipped.</h6>
+                                                <p class="text-muted mb-0">Sat, 18 Dec 2021 - 4.54PM</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="accordion-item border-0">
+                                        <div class="accordion-header" id="headingFour">
+                                            <a class="accordion-button p-2 shadow-none" data-bs-toggle="collapse"
+                                                href="#collapseFour" aria-expanded="false">
+                                                <div class="d-flex align-items-center">
+                                                    <div class="flex-shrink-0 avatar-xs">
+                                                        <div class="avatar-title bg-light text-success rounded-circle">
+                                                            <i class="ri-takeaway-fill"></i>
+                                                        </div>
+                                                    </div>
+                                                    <div class="flex-grow-1 ms-3">
+                                                        <h6 class="fs-14 mb-0">Out For Delivery</h6>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="accordion-item border-0">
+                                        <div class="accordion-header" id="headingFive">
+                                            <a class="accordion-button p-2 shadow-none" data-bs-toggle="collapse"
+                                                href="#collapseFile" aria-expanded="false">
+                                                <div class="d-flex align-items-center">
+                                                    <div class="flex-shrink-0 avatar-xs">
+                                                        <div class="avatar-title bg-light text-success rounded-circle">
+                                                            <i class="mdi mdi-package-variant"></i>
+                                                        </div>
+                                                    </div>
+                                                    <div class="flex-grow-1 ms-3">
+                                                        <h6 class="fs-14 mb-0">Delivered</h6>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--end accordion-->
+                            </div>
+                        </div>
+                    </div>
+                    <!--end card-->
+                </div>
+                <!--end col-->
+                <div class="col-xl-3">
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="d-flex">
+                                <h5 class="card-title flex-grow-1 mb-0"><i
+                                        class="mdi mdi-truck-fast-outline align-middle me-1 text-muted"></i> Logistics
+                                    Details</h5>
+                                <div class="flex-shrink-0">
+                                    <a href="javascript:void(0);"
+                                        class="badge bg-primary-subtle text-primary fs-11">Track Order</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-body" id="logistics-details-card-body">
+                            <div class="text-center">
+                                <lord-icon src="https://cdn.lordicon.com/uetqnvvg.json" trigger="loop"
+                                    colors="primary:#405189,secondary:#0ab39c" style="width:80px;height:80px">
+                                </lord-icon>
+                                <h5 class="fs-16 mt-2">RQK Logistics</h5>
+                                <p class="text-muted mb-0">ID: MFDS1400457854</p>
+                                <p class="text-muted mb-0">Payment Mode : Debit Card</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!--end card-->
+
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="d-flex">
+                                <h5 class="card-title flex-grow-1 mb-0">Customer Details</h5>
+                                <div class="flex-shrink-0">
+                                    <a href="javascript:void(0);" class="link-secondary">View Profile</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-body" id="customer-details-card-body">
+                            <!--customer details filled by js-->
+                        </div>
+                    </div>
+                    <!--end card-->
+                    <div class="card">
+                        <div class="card-header">
+                            <h5 class="card-title mb-0"><i class="ri-map-pin-line align-middle me-1 text-muted"></i>
+                                Billing Address</h5>
+                        </div>
+                        <div class="card-body" id="billing-address-card-body">
+                            <!--billing address details filled by js-->
+                        </div>
+                    </div>
+                    <!--end card-->
+                    <div class="card">
+                        <div class="card-header">
+                            <h5 class="card-title mb-0"><i class="ri-map-pin-line align-middle me-1 text-muted"></i>
+                                Shipping Address</h5>
+                        </div>
+                        <div class="card-body" id="shipping-address-card-body">
+                            <!--shipping address details filled by js-->
+                        </div>
+                    </div>
+                    <!--end card-->
+
+                    <div class="card">
+                        <div class="card-header">
+                            <h5 class="card-title mb-0"><i
+                                    class="ri-secure-payment-line align-bottom me-1 text-muted"></i> Payment Details
+                            </h5>
+                        </div>
+                        <div class="card-body" id="payment-details-card-body">
+
+                        </div>
+                    </div>
+                    <!--end card-->
+                </div>
+                <!--end col-->
+            </div>
+            <!--end row-->
+
+        </div><!-- container-fluid -->
+    </div><!-- End Page-content -->
+
+    <footer class="footer">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-6">
+                    <script>document.write(new Date().getFullYear())</script> © Urban Monster.
+                </div>
+                <div class="col-sm-6">
+                    <div class="text-sm-end d-none d-sm-block">
+                        Developed by Abhinav
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+</div>
+<script src="/static/js/order-details.js"></script>
+<script src="/static/js/app.js"></script>
+<script src="/static/libs/bootstrap/bootstrap.bundle.min.js"></script>
+<script src="/static/libs/simplebar/simplebar.min.js"></script>
+<script src="/static/libs/node-waves/waves.min.js"></script>
+<script src="/static/libs/feather-icons/feather.min.js"></script>
+<script src="/static/libs/flatpickr/flatpickr.min.js"></script>
+<script src="/static/libs/lord-icon/lord-icon-2.1.0.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+<script src="/static/js/choices.min.js"></script>

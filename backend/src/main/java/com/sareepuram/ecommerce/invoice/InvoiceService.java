@@ -32,7 +32,7 @@ public class InvoiceService {
     }
 
 
-    public byte[] generateInvoice(Payment payment) throws DocumentException, IOException {
+    public byte[] generateInvoice(Payment payment, String invoiceNumber, int orderId) throws DocumentException, IOException {
         Document document = new Document();
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
         PdfWriter.getInstance(document, baos);
